@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     def imageName = "samdocker2636/sam_testscript:latest"
-                    def dockerfile = "Dockerfile"  // Your Dockerfile path
+                    def dockerfile = "${pwd()}/Dockerfile"  // Your Dockerfile path
 
                     docker.build(imageName, "-f ${dockerfile} .")
                 }
