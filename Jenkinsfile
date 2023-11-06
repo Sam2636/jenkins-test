@@ -11,7 +11,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                
-                sh 'python sample.py'
+                sh 'python3 sample.py'
             }
         }
 
