@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                sh 'pip install -r requirements.txt'
+               
                 sh 'python sample.py'
             }
         }
