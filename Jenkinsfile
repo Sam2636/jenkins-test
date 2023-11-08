@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_BUILDKIT = '1'  // Enable Docker Buildx
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -21,7 +25,7 @@ pipeline {
                     def imageName = "samdocker2636/sam_testscript:latest"
                     def dockerfile = "${pwd()}/Dockerfile"  // Your Dockerfile path
 
-                    docker.build(imageName, "-f ${dockerfile} .")
+                    sh "docker buildx build -t ${imageName} -f ${dockerfile} ."
                 }
             }
         }
