@@ -25,7 +25,7 @@ pipeline {
                     def imageName = "samdocker2636/sam_testscript:latest"
                     def dockerfile = "${pwd()}/Dockerfile"  // Your Dockerfile path
 
-                    sh "docker buildx build -t ${imageName} -f ${dockerfile} ."
+                    sh "docker buildx build --tag ${imageName} --file ${dockerfile} ."
                 }
             }
         }
